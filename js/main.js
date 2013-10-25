@@ -18,8 +18,8 @@ $(document).ready(function() {
 		}
 
 		function init() {
-			var rawNames = document.cookie.replace(/(?:(?:^|.*;\s*)names\s*\=\s*([^;]*).*$)|^.*$/, "$1");
-			if (rawNames !== "") {
+			var rawNames = localStorage['names'];
+			if (rawNames !== undefined) {
 				names = JSON.parse(rawNames);
 				$('#p1 .name').text(names[0]);
 				$('#p2 .name').text(names[1]);
@@ -81,14 +81,20 @@ $(document).ready(function() {
 						}
 					)
 				);
-				document.cookie = "names=" + names;
+				localStorage['names'] = names;
 			});
+		}
+
+		function reset() {
+			render();
+			setupHandlers();
 		}
 
 		return {
 			init: init,
 			render: render,
-			setupHandlers: setupHandlers
+			setupHandlers: setupHandlers,
+			reset: reset
 		};
 	})();
 	TTD.init();

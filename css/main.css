@@ -5,25 +5,32 @@
 #p1 {
 	left: 1%;
 }
+#p1 div {
+	float: left;
+}
 #header .badge {
 	background-size: 100% 100%;
-	height: 5%;
-	width: 5%;
+	height: 50px;
+	width: 50px;
+	margin: 0 5px;
 }
 #p1 .badge {
-	background-image: url("../img/circle.png");
+	background-image: url("../img/cross.png");
 }
 #p2 .badge {
-	background-image: url("../img/cross.png");
+	background-image: url("../img/circle.png");
 }
 #header .name {
 	font-family: monospace;
 	color: #888;
 	font-weight: bold;
-	font-size: 200%;
+	font-size: 300%;
 }
 #p2 {
 	right: 1%;
+}
+#p2 div {
+	float: right;
 }
 #p2 input {
 	text-align: right;

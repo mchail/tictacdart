@@ -8,7 +8,7 @@
 	font-size: 32px;
 	border: 1px solid #000;
 	position: relative;
-	background-size: 100%;
+	background-size: 100% 100%;
 }
 .row .square:first-child {
 	border-left: none;
@@ -23,19 +23,19 @@
 	border-bottom: none;
 }
 .square[data-score="1"] {
-	background-image: url("img/slash.png");
+	background-image: url("../img/slash.png");
 }
 .square[data-score="2"] {
-	background-image: url("img/cross.png");
+	background-image: url("../img/cross.png");
 }
 .square[data-score="3"] {
-	background-image: url("img/circle.png");
+	background-image: url("../img/circle.png");
 }
 .square[data-win="1"] {
-	background-image: url("img/cross.png");
+	background-image: url("../img/cross.png");
 }
 .square[data-win="2"] {
-	background-image: url("img/circle.png");
+	background-image: url("../img/circle.png");
 }
 .wedge {
 	width: 100%;

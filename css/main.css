@@ -1,3 +1,33 @@
+#header > div {
+	position: absolute;
+	top: 1%;
+}
+#p1 {
+	left: 1%;
+}
+#header .badge {
+	background-size: 100% 100%;
+	height: 5%;
+	width: 5%;
+}
+#p1 .badge {
+	background-image: url("../img/circle.png");
+}
+#p2 .badge {
+	background-image: url("../img/cross.png");
+}
+#header .name {
+	font-family: monospace;
+	color: #888;
+	font-weight: bold;
+	font-size: 200%;
+}
+#p2 {
+	right: 1%;
+}
+#p2 input {
+	text-align: right;
+}
 .row .square {
 	display: inline-block;
 	width: 30%;
@@ -48,11 +78,11 @@
 }
 #player1 {
 	left: 5%;
-	top: 5%;
+	top: 10%;
 }
 #player2 {
 	right: 5%;
-	top: 5%;
+	top: 10%;
 }
 #main-board {
 	left: 50%;

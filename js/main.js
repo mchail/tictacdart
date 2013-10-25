@@ -17,6 +17,15 @@ $(document).ready(function() {
 			];
 		}
 
+		function init() {
+			var rawNames = document.cookie.replace(/(?:(?:^|.*;\s*)names\s*\=\s*([^;]*).*$)|^.*$/, "$1");
+			if (rawNames !== undefined) {
+				names = JSON.parse(rawNames);
+				$('#p1 .name').text(names[0]);
+				$('#p2 .name').text(names[1]);
+			}
+		}
+
 		function render() {
 			var tic = ticTac();
 			$boards.empty();
@@ -52,11 +61,8 @@ $(document).ready(function() {
 					}
 				} else if (score === 0) {
 					var otherPlayer = 3 - parseInt(player);
-					console.log(otherPlayer);
 					var otherPlayerSquare = $('#player' + otherPlayer + ' .square[data-index=' + index + ']');
-					console.log(otherPlayerSquare);
 					var otherPlayerScore = otherPlayerSquare.data('score');
-					console.log(otherPlayerScore);
 					if (otherPlayerScore === 3) {
 						mainSquare.attr('data-win', otherPlayer);
 					} else {
@@ -65,13 +71,27 @@ $(document).ready(function() {
 				}
 				$square.attr('data-score', score);
 			});
+
+			$('.name').on('blur', function() {
+				var names = JSON.stringify(
+					_.map(
+						$('.name'),
+						function(el) {
+							return $(el).text()
+						}
+					)
+				);
+				document.cookie = "names=" + names;
+			});
 		}
 
 		return {
+			init: init,
 			render: render,
 			setupHandlers: setupHandlers
 		};
 	})();
+	TTD.init();
 	TTD.render();
 	TTD.setupHandlers();
 });

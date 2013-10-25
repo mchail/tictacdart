@@ -19,7 +19,7 @@ $(document).ready(function() {
 
 		function init() {
 			var rawNames = document.cookie.replace(/(?:(?:^|.*;\s*)names\s*\=\s*([^;]*).*$)|^.*$/, "$1");
-			if (rawNames !== undefined) {
+			if (rawNames !== "") {
 				names = JSON.parse(rawNames);
 				$('#p1 .name').text(names[0]);
 				$('#p2 .name').text(names[1]);

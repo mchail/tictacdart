@@ -43,13 +43,24 @@ $(document).ready(function() {
 				window.square = $square;
 				var score = $square.attr('data-score') || 0;
 				score = (parseInt(score) + 1) % 4;
+				var player = $square.parents('.board').attr('id').substr(-1, 1);
+				var index = $square.data('index');
+				var mainSquare = $('#main-board .square[data-index="' + index + '"]');
 				if (score === 3) {
-					var player = $square.parents('.board').attr('id').substr(-1, 1);
-					var index = $square.data('index');
-					var mainSquare = $('#main-board .square[data-index="' + index + '"]');
-					window.m = mainSquare;
 					if (mainSquare.data('win') === undefined) {
 						mainSquare.attr('data-win', player);
+					}
+				} else if (score === 0) {
+					var otherPlayer = 3 - parseInt(player);
+					console.log(otherPlayer);
+					var otherPlayerSquare = $('#player' + otherPlayer + ' .square[data-index=' + index + ']');
+					console.log(otherPlayerSquare);
+					var otherPlayerScore = otherPlayerSquare.data('score');
+					console.log(otherPlayerScore);
+					if (otherPlayerScore === 3) {
+						mainSquare.attr('data-win', otherPlayer);
+					} else {
+						mainSquare.removeAttr('data-win');
 					}
 				}
 				$square.attr('data-score', score);

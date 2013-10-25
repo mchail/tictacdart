@@ -23,19 +23,19 @@
 	border-bottom: none;
 }
 .square[data-score="1"] {
-	background-image: url("/img/slash.png");
+	background-image: url("img/slash.png");
 }
 .square[data-score="2"] {
-	background-image: url("/img/cross.png");
+	background-image: url("img/cross.png");
 }
 .square[data-score="3"] {
-	background-image: url("/img/circle.png");
+	background-image: url("img/circle.png");
 }
 .square[data-win="1"] {
-	background-image: url("/img/cross.png");
+	background-image: url("img/cross.png");
 }
 .square[data-win="2"] {
-	background-image: url("/img/circle.png");
+	background-image: url("img/circle.png");
 }
 .wedge {
 	width: 100%;

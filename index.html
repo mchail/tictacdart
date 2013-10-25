@@ -4,67 +4,21 @@
 		<title>
 			Tic Tac Dart
 		</title>
+		<link rel="stylesheet" href="/css/main.css">
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
+		<script type="text/javascript" src="/js/main.js"></script>
 	</head>
 	<body>
-		<div id="nums">
-			Loading...
+		<div class="player-boards">
+			<div id="player1" class="board">
+				
+			</div>
+			<div id="player2" class="board">
+				
+			</div>
+			<div class="clearfix"></div>
 		</div>
+		<div id="main-board" class="board"></div>
 	</body>
-	<script type="text/javascript">
-		window.TTD = (function() {
-			var numDiv = document.getElementById('nums');
-
-			Array.prototype.shuffle = function() {
-				var length = this.length;
-
-				for (var i = 0; i < length; i++) {
-					var a = randInt(length);
-					var b = randInt(length);
-					var temp = this[a];
-					this[a] = this[b];
-					this[b] = temp;
-				}
-				function randInt(max) {
-					return Math.floor(Math.random() * max);
-				}
-			};
-
-			var nums = [];
-			for (var i = 1; i < 22; i++) {
-				nums.push(i);
-			}
-
-			function ticTac() {
-				nums.shuffle();
-				return nums.slice(0, 9);
-			}
-
-			function render() {
-				var nums = ticTac();
-				var s = [
-					format(nums.slice(0, 3)),
-					format(nums.slice(3, 6)),
-					format(nums.slice(6, 9)),
-				].join("\n");
-				numDiv.innerHTML = s;
-
-				function format(n) {
-					return n.map(function(v, index) {
-						return ("    " + v.toString()).substr(-4, 4);
-					}).join('');
-				}
-			}
-
-			return {
-				render: render
-			};
-		})();
-		TTD.render();
-	</script>
-	<style type="text/css">
-		#nums {
-			white-space: pre;
-			font-family: monospace;
-		}
-	</style>
 </html>

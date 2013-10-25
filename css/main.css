@@ -1,0 +1,77 @@
+.row .square {
+	display: inline-block;
+	width: 30%;
+	height: 30%;
+	text-align: center;
+	font-family: monospace;
+	font-weight: bold;
+	font-size: 32px;
+	border: 1px solid #000;
+	position: relative;
+	background-size: 100%;
+}
+.row .square:first-child {
+	border-left: none;
+}
+.row:first-child .square {
+	border-top: none;
+}
+.row .square:last-child {
+	border-right: none;
+}
+.row:last-child .square {
+	border-bottom: none;
+}
+.square[data-score="1"] {
+	background-image: url("/img/slash.png");
+}
+.square[data-score="2"] {
+	background-image: url("/img/cross.png");
+}
+.square[data-score="3"] {
+	background-image: url("/img/circle.png");
+}
+.square[data-win="1"] {
+	background-image: url("/img/cross.png");
+}
+.square[data-win="2"] {
+	background-image: url("/img/circle.png");
+}
+.wedge {
+	width: 100%;
+	position: absolute;
+	top: 50%;
+	margin-top: -20px;
+}
+.board {
+	position: absolute;
+}
+#player1 {
+	left: 5%;
+	top: 5%;
+}
+#player2 {
+	right: 5%;
+	top: 5%;
+}
+#main-board {
+	left: 50%;
+	bottom: 5%;
+	width: 50%;
+	height: 50%;
+	margin-left: -25%;
+}
+.player-boards .board {
+	color: #aaa;
+}
+.board {
+	width: 30%;
+	height: 30%;
+}
+#nums {
+	white-space: pre;
+	font-family: monospace;
+}
+.clearfix {
+	clear: both;
+}
